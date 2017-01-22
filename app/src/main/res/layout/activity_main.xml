@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/drawer_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.mobiletrain.a7_1drawlayoutnavigationview.MainActivity">
+
+    <!--
+    DrawerLayout容器中的控件整体上分为三部分：
+    1.主布局文件
+    2.左边侧滑菜单（可选）
+    3.右边侧滑菜单（可选）
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mainLayout"/>
+    </LinearLayout>
+
+    <!--
+    左边的导航菜单一定要写在主布局的下面，否则显示没有问题，但是侧拉菜单中的点击事件无法响应
+    android:layout_width="wrap_content"表示抽屉菜单的宽度为屏幕宽度的4/5
+    app:headerLayout="@layout/"表示引用一个头布局文件
+     app:menu="@menu/main"表示引入item列表
+     app:itemIconTint="#006afd"修改item图片的颜色
+    -->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/header_layout"
+        app:menu="@menu/main"></android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>
